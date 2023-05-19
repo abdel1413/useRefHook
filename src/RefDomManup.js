@@ -16,6 +16,7 @@ export default function RefDomManup() {
   };
   return (
     <div className="container">
+      <p> userRef Dom manupalation</p>
       <nav>
         <button onClick={() => viewNextCat(0)}> cate 1</button>
         <button onClick={() => viewNextCat(1)}> cate 2</button>
