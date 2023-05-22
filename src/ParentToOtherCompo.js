@@ -1,33 +1,76 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
-const MyComponent = forwardRef((props, ref) => {
-  console.log("props ", props.color);
+let OwnComponent = forwardRef((props, ref) => {
+  let counter = useRef(null);
+  let [name, setName] = useState("");
+  console.log(props.style.color);
+  useEffect(() => {
+    counter.current = counter.current + 1;
+  });
+
   return (
     <div>
-      <input {...props} ref={ref} />
+      <p>{counter.current}</p>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        ref={ref}
+        {...props}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
     </div>
   );
 });
 
 function ParentComponent() {
-  let inputRef = useRef(null);
+  let ref = useRef(null);
 
   const handleClick = () => {
-    inputRef.current.focus();
+    ref.current.focus();
   };
 
   return (
     <div>
       <hr />
-      <p>
-        {" "}
-        useRef and forwardRef to allow parent component to have access to
-        different component
-      </p>
-      <MyComponent ref={inputRef} color="yellow" />
+      <h3>UseRef and forwardRef</h3>
+      <OwnComponent ref={ref} style={{ color: "blue" }} />
+      <button onClick={handleClick}>Click</button>
 
-      <button onClick={handleClick}>click to focus</button>
+      <hr />
     </div>
   );
 }
 export default ParentComponent;
+
+// const MyComponent = forwardRef((props, ref) => {
+//   console.log("props ", props.color);
+//   return (
+//     <div>
+//       <input {...props} ref={ref} />
+//     </div>
+//   );
+// });
+
+// function ParentComponent() {
+//   let inputRef = useRef(null);
+
+//   const handleClick = () => {
+//     inputRef.current.focus();
+//   };
+
+//   return (
+//     <div>
+//       <hr />
+//       <p>
+//         {" "}
+//         useRef and forwardRef to allow parent component to have access to
+//         different component
+//       </p>
+//       <MyComponent ref={inputRef} color="yellow" />
+
+//       <button onClick={handleClick}>click to focus</button>
+//     </div>
+//   );
+// }
+// export default ParentComponent;

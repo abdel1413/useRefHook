@@ -1,40 +1,43 @@
 import { useEffect, useRef, useState } from "react";
 import UserefHook from "./UserefHook";
 
-export default function UseRefPlaying() {
-  let [isPlaying, setIsPlaying] = useState(false);
-  let playVideo = useRef(null);
+function UseRefPlaying() {
+  let [isPlaying, setIsplay] = useState(false);
+  let ref = useRef(null);
 
   const handleClick = () => {
-    setIsPlaying(!isPlaying);
+    setIsplay(!isPlaying);
+    // isPlaying ? ref.current.play() : ref.current.pause();
     if (!isPlaying) {
-      playVideo.current.play();
+      ref.current.play();
     } else {
-      playVideo.current.pause();
+      ref.current.pause();
     }
   };
 
   return (
     <div>
       <hr />
-      <h2>Video player</h2>
+      <h3>UseRef to Play/pause video</h3>
       <video
-        className="source"
-        width="500"
         controls
-        ref={playVideo}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
+        ref={ref}
+        onPlay={() => setIsplay(true)}
+        onPause={() => setIsplay(false)}
+        width="400"
+        className="source"
       >
-        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" />
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
       </video>
-      <button className="play" onClick={handleClick}>
-        {isPlaying ? "Pause" : "Play"}
-      </button>
+      <button onClick={handleClick}>{isPlaying ? "Pause" : "Play"}</button>
+      <hr />
     </div>
   );
 }
-
+export default UseRefPlaying;
 // export default function UseRefPlaying() {
 //   let [isPlaying, setIsPlaying] = useState(false);
 //   let tracker = useRef(null);
