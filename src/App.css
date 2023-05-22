@@ -97,3 +97,14 @@ video {
   background-color: lightblue;
   padding: 10px;
 }
+
+.stop-watch {
+  position: fixed;
+  top: 5px;
+  right: 20px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+}

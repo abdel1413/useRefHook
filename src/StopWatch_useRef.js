@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 export default function StopWatchUseRef() {
   let [start, setStart] = useState(null);
   let [now, setNow] = useState(null);
+  let [reset, setReset] = useState(0);
   let timeInterval = useRef(null);
 
   const handleStart = () => {
@@ -27,11 +28,17 @@ export default function StopWatchUseRef() {
     secondsPassed = (now - start) / 1000;
   }
 
+  const resetTime = () => {
+    console.log(now);
+    setNow((now = null));
+  };
+
   return (
-    <div>
-      <h2>Time passed: {secondsPassed.toFixed(3)}</h2>
+    <div className="stop-watch">
+      <p>Time passed: {secondsPassed.toFixed(3)}</p>
       <button onClick={handleStart}>Start</button>
       <button onClick={handleStop}>Stop</button>
+      <button onClick={resetTime}>Reset</button>
     </div>
   );
 }
