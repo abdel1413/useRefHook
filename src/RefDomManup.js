@@ -5,9 +5,9 @@ export default function RefDomManup() {
   let listRef = useRef("");
 
   const viewNextCat = (index) => {
-    console.log(listRef.current);
+    console.log("current", listRef.current);
     let listNode = listRef.current.querySelectorAll("li > img")[index];
-    console.log(listNode);
+    console.log("img", listNode);
     listNode.scrollIntoView({
       bahavior: "smooth",
       block: "nearest",
