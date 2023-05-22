@@ -19,6 +19,7 @@
   align-items: center;
   justify-content: center;
   width: 500px;
+
   margin: 0 auto;
   background-color: #ffffff;
   box-shadow: 2px 5px 0 2px rgba(155, 105, 105, 0.2);
@@ -58,4 +59,41 @@ video {
   width: 400px;
 
   margin: 0 auto;
+}
+
+.image-scroller {
+  max-width: 500px;
+  height: 400px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  background-color: #cfcccc;
+  box-shadow: 2px 5px 0 2px rgba(155, 105, 105, 0.2);
+  margin-bottom: 20px;
+}
+
+.cat-box {
+  display: flex;
+  /* width: 100%; */
+  max-width: 320px;
+  height: 250px;
+  display: flex;
+  overflow: hidden;
+
+  background-color: transparent;
+}
+
+.active {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  object-fit: cover;
+  background-color: lightblue;
+  padding: 10px;
 }
