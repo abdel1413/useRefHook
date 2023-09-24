@@ -34,7 +34,7 @@ function ParentComponent() {
     <div>
       <hr />
       <h3>UseRef and forwardRef</h3>
-      <OwnComponent ref={ref} style={{ color: "blue" }} />
+      <OwnComponent ref={ref} style={{ color: "green" }} />
       <button onClick={handleClick}>Click</button>
 
       <hr />

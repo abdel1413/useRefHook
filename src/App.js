@@ -6,6 +6,7 @@ import RefDomManup from "./RefDomManup";
 
 import ScrollImage from "./ScrollImage";
 import StopWatchUseRef from "./StopWatch_useRef";
+import { UseRducerFunction } from "./useReducer/UseReducerFuncton";
 import UserefHook from "./UserefHook";
 import UseRefPlaying from "./UseRefPlaying";
 
@@ -23,6 +24,7 @@ function App() {
       <PreviousState />
       <ParentComponent />
       <StopWatchUseRef />
+      <UseRducerFunction />
     </div>
   );
 }
