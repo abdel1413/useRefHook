@@ -8,7 +8,6 @@ export default function StopWatchUseRef() {
 
   const handleStart = () => {
     setStart(Date.now());
-
     setNow(Date.now());
 
     //clear the interval before accessing the current state
