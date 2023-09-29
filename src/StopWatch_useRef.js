@@ -3,8 +3,8 @@ import React, { useRef, useState } from "react";
 export default function StopWatchUseRef() {
   let [start, setStart] = useState(null);
   let [now, setNow] = useState(null);
-  let [reset, setReset] = useState(0);
-  let timeInterval = useRef(null);
+  const [isPlaying, setIsplaying] = useState(false);
+  let ref = useRef(null);
 
   const handleStart = () => {
     setStart(Date.now());
@@ -12,15 +12,15 @@ export default function StopWatchUseRef() {
     setNow(Date.now());
 
     //clear the interval before accessing the current state
-    clearInterval(timeInterval.current);
+    clearInterval(ref.current);
 
-    timeInterval.current = setInterval(() => {
+    ref.current = setInterval(() => {
       setNow(Date.now());
-    }, 10);
+    }, 1000);
   };
 
   const handleStop = () => {
-    clearInterval(timeInterval.current);
+    clearInterval(ref.current);
   };
 
   let secondsPassed = 0;
@@ -29,16 +29,34 @@ export default function StopWatchUseRef() {
   }
 
   const resetTime = () => {
-    console.log(now);
-    setNow((now = null));
+    if (!isPlaying) {
+      setNow((now = null));
+      setIsplaying(false);
+    }
+  };
+  const playStop = () => {
+    if (!isPlaying) {
+      setIsplaying(true);
+      setStart(Date.now());
+      setNow(Date.now());
+      //clearInterval(ref.current);
+      ref.current = setInterval(() => {
+        setNow(Date.now());
+      }, 1000);
+    } else {
+      clearInterval(ref.current);
+      setIsplaying(!isPlaying);
+    }
   };
 
   return (
     <div className="stop-watch">
-      <p>Time passed: {secondsPassed.toFixed(3)}</p>
-      <button onClick={handleStart}>Start</button>
-      <button onClick={handleStop}>Stop</button>
+      <p> {secondsPassed.toFixed(2)}</p>
+
+      {/* <button onClick={handleStart}>Start</button>
+      <button onClick={handleStop}>Stop</button> */}
       <button onClick={resetTime}>Reset</button>
+      <button onClick={playStop}>{isPlaying ? "Stop" : "Start"}</button>
     </div>
   );
 }

@@ -6,7 +6,7 @@ function RefDomManup() {
 
   let vewCat = (index) => {
     let img = ref.current.querySelectorAll("li>img")[index];
-    console.log(img);
+    console.log("img", img);
     img.scrollIntoView({
       bahavior: "smooth",
       inline: "center",

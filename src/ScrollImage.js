@@ -3,7 +3,7 @@ import { flushSync } from "react-dom";
 import "./App.css";
 
 export default function ScrollImage() {
-  let [index, setIndex] = useState(0);
+  let [index, setIndex] = useState();
   let ref = useRef(null);
   //get cat and push it into the empty array
   let catList = [];
@@ -13,9 +13,10 @@ export default function ScrollImage() {
       imageUrl: `https://placekitten.com/250/200?image=` + i,
     });
   }
-  console.log(catList);
 
   const goToNext = () => {
+    //this function force react to flush any pending work
+    //and update the DOM synchronously
     flushSync(() => {
       if (index < catList.length - 1) {
         setIndex(index + 1);

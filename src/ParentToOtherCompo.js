@@ -1,9 +1,9 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
 
 let OwnComponent = forwardRef((props, ref) => {
-  let counter = useRef(null);
   let [name, setName] = useState("");
-  console.log(props.style.color);
+  let counter = useRef(null);
+
   useEffect(() => {
     counter.current = counter.current + 1;
   });
