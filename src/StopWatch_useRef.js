@@ -30,14 +30,14 @@ export default function StopWatchUseRef() {
   const resetTime = () => {
     if (!isPlaying) {
       setNow((now = null));
-      setIsplaying(false);
+      //setIsplaying(false);
     }
   };
   const playStop = () => {
     if (!isPlaying) {
       setIsplaying(true);
       setStart(Date.now());
-      setNow(Date.now());
+      //setNow(Date.now());
       //clearInterval(ref.current);
       ref.current = setInterval(() => {
         setNow(Date.now());

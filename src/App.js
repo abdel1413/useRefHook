@@ -3,11 +3,11 @@ import InputFocus from "./InputFocus";
 import ParentComponent from "./ParentToOtherCompo";
 import PreviousState from "./PreviousState";
 import RefDomManup from "./RefDomManup";
+
 import ScrollImage from "./ScrollImage";
 import StopWatchUseRef from "./StopWatch_useRef";
 import UserefHook from "./UserefHook";
 import UseRefPlaying from "./UseRefPlaying";
-import RefPlayer from "./UseRefPlaying";
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
       <RefDomManup />
 
       <ScrollImage />
-      {/* <UseRefPlaying /> */}
-      <RefPlayer />
+      <UseRefPlaying />
+
       <PreviousState />
       <ParentComponent />
       <StopWatchUseRef />
